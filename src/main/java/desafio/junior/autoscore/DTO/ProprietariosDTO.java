@@ -3,7 +3,7 @@ package desafio.junior.autoscore.DTO;
 import desafio.junior.autoscore.entity.ProprietariosEntity;
 import org.springframework.beans.BeanUtils;
 
-public class PropietariosDTO {
+public class ProprietariosDTO {
     private Long id;
     private String proprietario;
     private String cpf;
@@ -13,11 +13,11 @@ public class PropietariosDTO {
     private String chassi;
 
 
-    public PropietariosDTO (ProprietariosEntity proprietarios){
+    public ProprietariosDTO(ProprietariosEntity proprietarios){
         BeanUtils.copyProperties(proprietarios, this);
     }
 
-    public  PropietariosDTO(){
+    public ProprietariosDTO(){
 
     }
 

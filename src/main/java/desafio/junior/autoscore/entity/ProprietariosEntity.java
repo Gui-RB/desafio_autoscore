@@ -1,6 +1,6 @@
 package desafio.junior.autoscore.entity;
 
-import desafio.junior.autoscore.DTO.PropietariosDTO;
+import desafio.junior.autoscore.DTO.ProprietariosDTO;
 import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
 
@@ -27,7 +27,7 @@ public class ProprietariosEntity {
     @Column
     private boolean lincenciado;
 
-    public ProprietariosEntity(PropietariosDTO propreitarios){
+    public ProprietariosEntity(ProprietariosDTO propreitarios){
         BeanUtils.copyProperties(propreitarios , this);
     }
 
