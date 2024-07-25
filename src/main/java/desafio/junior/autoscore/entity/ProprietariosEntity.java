@@ -7,7 +7,7 @@ import org.springframework.beans.BeanUtils;
 import java.util.Objects;
 
 @Entity
-@Table(name = "GRB_Proprietarios")
+@Table(name = "GRB_Proprietários")
 public class ProprietariosEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,14 +18,6 @@ public class ProprietariosEntity {
     private String cpf;
     @Column(nullable = false,unique = true)
     private String placa;
-    @Column
-    private String marca;
-    @Column
-    private String modelo;
-    @Column
-    private String chassi;
-    @Column
-    private boolean lincenciado;
 
     public ProprietariosEntity(ProprietariosDTO propreitarios){
         BeanUtils.copyProperties(propreitarios , this);
@@ -67,37 +59,6 @@ public class ProprietariosEntity {
         this.placa = placa;
     }
 
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public String getChassi() {
-        return chassi;
-    }
-
-    public void setChassi(String chassi) {
-        this.chassi = chassi;
-    }
-
-    public boolean isLincenciado() {
-        return lincenciado;
-    }
-
-    public void setLincenciado(boolean lincenciado) {
-        this.lincenciado = lincenciado;
-    }
 
     @Override
     public boolean equals(Object o) {

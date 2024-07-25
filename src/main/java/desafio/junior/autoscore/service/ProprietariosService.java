@@ -1,7 +1,6 @@
 package desafio.junior.autoscore.service;
 
 import desafio.junior.autoscore.DTO.ProprietariosDTO;
-import desafio.junior.autoscore.consumoAPI.ConsumoApi;
 import desafio.junior.autoscore.entity.ProprietariosEntity;
 import desafio.junior.autoscore.repository.ProprietariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +14,7 @@ public class ProprietariosService {
     @Autowired
     public ProprietariosRepository proprietariosRepository;
 
-    @Autowired
-    public ConsumoApi consumoApi;
-
-    public ProprietariosDTO obterVeiculos(String placa){
-        return consumoApi.obterVeiculoPorPlaca( placa);
-
-    }
+//    }
 
     public List<ProprietariosDTO> listarTodos(){
         List<ProprietariosEntity> proprietariosEntities = proprietariosRepository.findAll();
