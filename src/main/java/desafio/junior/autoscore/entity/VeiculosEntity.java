@@ -1,14 +1,15 @@
 package desafio.junior.autoscore.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import desafio.junior.autoscore.DTO.VeiculosDTO;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
 
 @Entity
 @Table(name = "GRB_Veículos")
-public class VeiculosEntitiy {
+public class VeiculosEntity {
+    @Id
+    private Long id;
     @Column
     private String marca;
     @Column
@@ -18,11 +19,17 @@ public class VeiculosEntitiy {
     @Column
     private boolean lincenciado;
 
-    public VeiculosEntitiy (VeiculosDTO veiculos){
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToOne
+    @JoinColumn(name = "palca_id")
+    private ProprietariosEntity proprietarios;
+
+
+    public VeiculosEntity(VeiculosDTO veiculos){
         BeanUtils.copyProperties(veiculos,this);
     }
 
-    public VeiculosEntitiy(){
+    public VeiculosEntity(){
 
     }
 
@@ -56,5 +63,21 @@ public class VeiculosEntitiy {
 
     public void setLincenciado(boolean lincenciado) {
         this.lincenciado = lincenciado;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public ProprietariosEntity getProprietarios() {
+        return proprietarios;
+    }
+
+    public void setProprietarios(ProprietariosEntity proprietarios) {
+        this.proprietarios = proprietarios;
     }
 }

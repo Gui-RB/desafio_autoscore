@@ -19,7 +19,10 @@ public class ProprietariosEntity {
     @Column(nullable = false,unique = true)
     private String placa;
 
-    public ProprietariosEntity(ProprietariosDTO propreitarios){
+    @OneToOne(mappedBy = "proprietarios", cascade = CascadeType.ALL)
+    private VeiculosEntity veiculos;
+
+    public ProprietariosEntity(ProprietariosDTO propreitarios) {
         BeanUtils.copyProperties(propreitarios , this);
     }
 
@@ -59,6 +62,13 @@ public class ProprietariosEntity {
         this.placa = placa;
     }
 
+    public VeiculosEntity getVeiculos() {
+        return veiculos;
+    }
+
+    public void setVeiculos(VeiculosEntity veiculos) {
+        this.veiculos = veiculos;
+    }
 
     @Override
     public boolean equals(Object o) {

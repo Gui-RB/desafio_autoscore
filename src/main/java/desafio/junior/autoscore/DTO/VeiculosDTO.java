@@ -1,6 +1,6 @@
 package desafio.junior.autoscore.DTO;
 
-import desafio.junior.autoscore.entity.VeiculosEntitiy;
+import desafio.junior.autoscore.entity.VeiculosEntity;
 import org.springframework.beans.BeanUtils;
 
 public class VeiculosDTO {
@@ -9,7 +9,7 @@ public class VeiculosDTO {
     private String chassi;
     private boolean lincenciado;
 
-    public VeiculosDTO(VeiculosEntitiy veiculos){
+    public VeiculosDTO(VeiculosEntity veiculos){
         BeanUtils.copyProperties(veiculos, this);
     }
 

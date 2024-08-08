@@ -14,7 +14,7 @@ public class ProprietariosService {
     @Autowired
     public ProprietariosRepository proprietariosRepository;
 
-//    }
+
 
     public List<ProprietariosDTO> listarTodos(){
         List<ProprietariosEntity> proprietariosEntities = proprietariosRepository.findAll();
@@ -29,6 +29,10 @@ public class ProprietariosService {
 
     public ProprietariosDTO alterar(ProprietariosDTO proprietariosDTO) {
         ProprietariosEntity proprietarios = new ProprietariosEntity(proprietariosDTO);
+
+        if (proprietarios.getId() == null || proprietarios.getId() <= 0){
+            for (int p = 0; p < proprietarios.getVeiculos()
+        }
         return new ProprietariosDTO( proprietariosRepository.save(proprietarios));
     }
 
